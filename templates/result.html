@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>
+        Wynik: {{ data['correct'] / data['total'] * 100 }}%. {{ data['correct'] }} poprawnych odpowiedzi z {{ data['total'] }} pytań.
+    </p>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>
+        Pytanie {{ data['index'] + 1 }} z {{ data['total'] }}: {{ data['question'] }}
+    </p>
+    <form method="POST">
+        <input type="hidden" name="index" value="{{ data['index'] }}">
+        {% for answer in data['answers'] %}
+            <input type="radio" name="answer" value="{{ loop.index }}" />{{ answer }}<br>
+        {% endfor %}
+        {% if data['index'] + 1 < data['total'] %}
+            <input type="submit" value="Next" />
+        {% else %}
+            <input type="submit" value="Show results" />
+        {% endif %}
+    </form>
+{% endblock content %}
